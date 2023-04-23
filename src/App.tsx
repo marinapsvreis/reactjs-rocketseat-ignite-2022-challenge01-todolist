@@ -15,7 +15,7 @@ export function App() {
 
   function handleAddTask(task: Task){
     task.id = tasks.length + 1;
-    setTasks([...tasks, task])
+    setTasks([task, ...tasks])
   }
 
   function handleRemoveTask(taskForRemove: Task){
@@ -28,7 +28,11 @@ export function App() {
     taskToCheck.checked = newStatus;
 
     const tasksWithourTaskWithOldStatus = tasks.filter((task) => task.id !== taskToCheck.id)
-    setTasks([...tasksWithourTaskWithOldStatus, taskToCheck]);
+    if(taskToCheck.checked){
+      setTasks([...tasksWithourTaskWithOldStatus, taskToCheck]);
+    }else {
+      setTasks([taskToCheck, ...tasksWithourTaskWithOldStatus]);
+    }
   }
   
   return (

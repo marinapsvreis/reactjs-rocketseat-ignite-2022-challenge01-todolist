@@ -22,7 +22,7 @@ export function TasksList({ tasks, removeTask, checkTask }: TasksListProps) {
         <div className={styles.counter}>
           <p className={styles.labelDone}>Concluídas</p>
           <p className={styles.number}>
-            {tasks.filter((task) => task.checked === true).length}
+            {tasks.filter((task) => task.checked === true).length} de {tasks.length}
           </p>
         </div>
       </header>
