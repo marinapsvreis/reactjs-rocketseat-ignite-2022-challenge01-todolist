@@ -1,20 +1,14 @@
 import { HiOutlineTrash } from "react-icons/hi";
+import { Task } from "../../App";
 import Checked from "../../assets/checked.png";
 import Clipboard from "../../assets/clipboard.svg";
 import Unchecked from "../../assets/unchecked.png";
 import styles from "./styles.module.css";
 
-const tasks = [
-  {
-    content: "Tarefa a fazer",
-    checked: false,
-  },
-  {
-    content: "Tarefa concluida",
-    checked: true,
-  },
-];
-export function TasksList() {
+interface TasksListProps{
+    tasks: Task[];
+}
+export function TasksList({ tasks }: TasksListProps) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
