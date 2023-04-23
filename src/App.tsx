@@ -14,7 +14,7 @@ export function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   function handleAddTask(task: Task){
-    task.id = tasks.length;
+    task.id = tasks.length + 1;
     setTasks([...tasks, task])
   }
 

@@ -39,7 +39,7 @@ export function TasksList({ tasks, removeTask, checkTask }: TasksListProps) {
       ) : (
         <main className={styles.list}>
           {tasks.map((task) => (
-            <div className={styles.task}>
+            <div key={task.id} className={styles.task}>
               <div className={styles.taskNameAndStatus}>
                 <button className={styles.checkbox} onClick={() => checkTask(task)}>
                   <img src={task.checked ? Checked : Unchecked} />
