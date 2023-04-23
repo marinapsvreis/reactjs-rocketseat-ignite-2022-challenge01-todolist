@@ -5,10 +5,13 @@ import Clipboard from "../../assets/clipboard.svg";
 import Unchecked from "../../assets/unchecked.png";
 import styles from "./styles.module.css";
 
-interface TasksListProps{
-    tasks: Task[];
+interface TasksListProps {
+  tasks: Task[];
+  removeTask: (task: Task) => void;
+  checkTask: (task: Task) => void;
 }
-export function TasksList({ tasks }: TasksListProps) {
+export function TasksList({ tasks, removeTask, checkTask }: TasksListProps) {
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -18,7 +21,9 @@ export function TasksList({ tasks }: TasksListProps) {
         </div>
         <div className={styles.counter}>
           <p className={styles.labelDone}>Concluídas</p>
-          <p className={styles.number}>{tasks.filter((task) => (task.checked === true)).length}</p>
+          <p className={styles.number}>
+            {tasks.filter((task) => task.checked === true).length}
+          </p>
         </div>
       </header>
       {tasks.length === 0 ? (
@@ -36,12 +41,20 @@ export function TasksList({ tasks }: TasksListProps) {
           {tasks.map((task) => (
             <div className={styles.task}>
               <div className={styles.taskNameAndStatus}>
-                <button className={styles.checkbox}>
-                    <img src={task.checked ? Checked : Unchecked}/>
+                <button className={styles.checkbox} onClick={() => checkTask(task)}>
+                  <img src={task.checked ? Checked : Unchecked} />
                 </button>
-                <p className={task.checked ? styles.taskDescriptionDone : styles.taskDescription}>{task.content}</p>
+                <p
+                  className={
+                    task.checked
+                      ? styles.taskDescriptionDone
+                      : styles.taskDescription
+                  }
+                >
+                  {task.content}
+                </p>
               </div>
-              <HiOutlineTrash size={24} title="Excluir tarefa" />
+              <HiOutlineTrash size={24} title="Excluir tarefa" onClick={() => removeTask(task)} />
             </div>
           ))}
         </main>
