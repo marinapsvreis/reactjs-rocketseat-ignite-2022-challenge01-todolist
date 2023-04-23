@@ -116,3 +116,11 @@
 .taskDescriptionDone{
     text-decoration: line-through;
 }
+
+.trash{
+    transition: 0.2s;
+}
+
+.trash:hover{
+    color: var(--red-500);
+}

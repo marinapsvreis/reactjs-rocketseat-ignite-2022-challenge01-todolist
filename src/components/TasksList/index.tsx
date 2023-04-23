@@ -54,7 +54,12 @@ export function TasksList({ tasks, removeTask, checkTask }: TasksListProps) {
                   {task.content}
                 </p>
               </div>
-              <HiOutlineTrash size={24} title="Excluir tarefa" onClick={() => removeTask(task)} />
+              <HiOutlineTrash 
+                size={24} 
+                title="Excluir tarefa" 
+                onClick={() => removeTask(task)} 
+                className={styles.trash}
+              />
             </div>
           ))}
         </main>

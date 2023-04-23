@@ -15,7 +15,7 @@
     background: var(--gray-500);
     border: none;
 
-    color: var(--gray-300);
+    color: var(--gray-100);
     outline: none;
 }
 
@@ -33,4 +33,10 @@
     color: var(--gray-100);
     border: none;
     border-radius: 8px;
+
+    transition: 0.2s;
+}
+
+.button:hover{
+    background: var(--blue-500);
 }

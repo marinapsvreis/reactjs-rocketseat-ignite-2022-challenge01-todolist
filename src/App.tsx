@@ -6,7 +6,7 @@ import { TasksList } from "./components/TasksList";
 import "./global.css";
 
 export interface Task{
-  id: number;
+  id?: number;
   content: string;
   checked: boolean;
 }
