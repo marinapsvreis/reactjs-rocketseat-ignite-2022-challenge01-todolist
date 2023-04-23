@@ -1,8 +1,9 @@
+import { BsCheckCircleFill } from "react-icons/bs";
 import { HiOutlineTrash } from "react-icons/hi";
 import { Task } from "../../App";
-import Checked from "../../assets/checked.png";
+// import Checked from "../../assets/checked.png";
+// import Unchecked from "../../assets/unchecked.png";
 import Clipboard from "../../assets/clipboard.svg";
-import Unchecked from "../../assets/unchecked.png";
 import styles from "./styles.module.css";
 
 interface TasksListProps {
@@ -41,8 +42,8 @@ export function TasksList({ tasks, removeTask, checkTask }: TasksListProps) {
           {tasks.map((task) => (
             <div key={task.id} className={styles.task}>
               <div className={styles.taskNameAndStatus}>
-                <button className={styles.checkbox} onClick={() => checkTask(task)}>
-                  <img src={task.checked ? Checked : Unchecked} />
+                <button className={styles.checkboxContainer} onClick={() => checkTask(task)}>
+                  {task.checked ? <BsCheckCircleFill/> : <div/>}
                 </button>
                 <p
                   className={
