@@ -141,3 +141,12 @@
 .trash:hover{
     color: var(--red-500);
 }
+
+
+
+
+@media (max-width: 768px){
+    p.text, p.textBold{
+        text-align: center;
+    }    
+}
